@@ -10,7 +10,7 @@
    ·
    <a href="https://www.ism.ac.jp/~fukumizu/">Kenji Fukumizu</a>
 </p>
-  <h3 align="center"> <a href="https://kotatumuri-room.github.io/a2afm/">[Project page]</a> <a href="https://arxiv.org/abs/2504.03188">[Paper]</a>  </h3>
+  <h3 align="center">  <a href="https://arxiv.org/abs/2504.03188">[arXiv]</a>  </h3>
   <h2 align="center"> NeurIPS2025 (Poster)</h3>
 <p align="center">
   <img src="assets/a2afm_concept.png" width="1200" height="auto">

@@ -1,0 +1,41 @@
+defaults:
+  - default
+  - override data_config: synthetic
+  - override data_handler: A2AFM_nosim
+  - override dataset: synthetic
+  - override val_dataset: synthetic
+  - override model: dense_net_gen
+  - override process_generator: styletransfer_betaFM
+  - override optimizer: Adam
+  - override evaluator: synthetic
+  - _self_
+
+modelname: synthetic
+
+
+evaluator:
+ eval_clist: [[0], [1], [2]]
+ timesteps: 100
+ force_steps: 2
+
+process_generator:
+  ot_calculator: 
+    beta: 10 #the scale is different from the paper beta = sqrt(beta_paper)
+
+train_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 5000
+  shuffle: true
+  num_workers: 10
+  drop_last: true
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 1000
+  shuffle: false
+  num_workers: 0
+  drop_last: true
+trainer:
+  devices: 1
+  precision: 32
+  check_val_every_n_epoch: 100
+  max_epochs: 20

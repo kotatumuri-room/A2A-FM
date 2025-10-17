@@ -1,0 +1,23 @@
+defaults:
+  - stochastic_interpolants
+  - override datasets: synthetic
+  - override val_datasets: synthetic
+  - _self_
+timesteps: 100
+modelname: synthetic_sto_interp
+trainer:
+  max_epochs: 200
+dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 1000
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 1000
+alpha:
+  train_dataloader:
+    _target_: torch.utils.data.DataLoader
+    batch_size: 1000
+
+
+c_list: [0,1,2,3,4]
+K: 5

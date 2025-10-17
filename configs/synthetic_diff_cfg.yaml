@@ -1,0 +1,37 @@
+defaults:
+  - default
+  - override data_config: synthetic
+  - override data_handler: classifer_free_guidance
+  - override dataset: synthetic_gen
+  - override val_dataset: synthetic_gen
+  - override model: dense_net_gen
+  - override process_generator: classifer_free_guidance_diffusion
+  - override optimizer: Adam
+  - override evaluator: synthetic
+  - _self_
+
+modelname: synthetic_diff_cfg
+
+evaluator:
+ eval_clist: [[0], [1], [2]]
+ timesteps: 100
+ force_steps: 2
+
+
+train_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 1000
+  shuffle: true
+  num_workers: 10
+  drop_last: true
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 1000
+  shuffle: false
+  num_workers: 0
+  drop_last: true
+trainer:
+  devices: 1
+  precision: 32
+  check_val_every_n_epoch: 100
+  max_epochs: 20

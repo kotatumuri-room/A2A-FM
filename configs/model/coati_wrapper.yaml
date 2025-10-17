@@ -1,0 +1,6 @@
+_target_: script.models.flow_models.Flow
+mynet:
+  _target_: script.models.coati_wrapper.COATI_wrapper
+  ckpt_doc: ${rootdir}/data/logp_flow.pt
+  time_max: 1.
+  use_state_dict: false

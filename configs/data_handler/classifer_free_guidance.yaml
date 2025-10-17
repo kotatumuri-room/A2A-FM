@@ -1,0 +1,7 @@
+_target_: script.data_handler.generation.ClassiferFreeGuidanceDataHandler
+cond_drop: 0.5
+lam_max: 20
+lam_min: -20
+v: 0.3
+c_max: 20
+c_min: 0.1

@@ -1,0 +1,58 @@
+defaults:
+  - stochastic_interpolants
+  - override datasets: zinc22
+  - override val_datasets: zinc22
+  - override model: coati_model
+  - override optimizer: AdamW
+  - override c_list: zinc22
+  - _self_
+timesteps: 100
+modelname: zinc22_logp_tpsa
+trainer:
+  max_epochs: 50
+dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 1
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 1
+alpha:
+  train_dataloader:
+    _target_: torch.utils.data.DataLoader
+    batch_size: 1
+
+
+eval:
+  autoencoder_path: ${rootdir}/autoencoder_ckpts/general_doc.pt
+  cond_cdf_path: ${rootdir}/datasets/ZINC22_preprocessed_logp_tpsa/cond_cdfs.pkl 
+  device: cuda
+  K: 10
+  initial_point_dir: ${rootdir}/data/zinc22_logp_tpsa_eval.npz
+  timesteps: 10
+  validation_conds: [[  0.,  10.],
+        [  1.,  10.],
+        [  2.,  10.],
+        [  3.,  10.],
+        [  4.,  10.],
+        [  0.,  45.],
+        [  1.,  45.],
+        [  2.,  45.],
+        [  3.,  45.],
+        [  4.,  45.],
+        [  0.,  80.],
+        [  1.,  80.],
+        [  2.,  80.],
+        [  3.,  80.],
+        [  4.,  80.],
+        [  0., 115.],
+        [  1., 115.],
+        [  2., 115.],
+        [  3., 115.],
+        [  4., 115.],
+        [  0., 150.],
+        [  1., 150.],
+        [  2., 150.],
+        [  3., 150.],
+        [  4., 150.]]
+  num_seed: 10
+  noise_intensity: 0.1

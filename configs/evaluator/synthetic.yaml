@@ -1,0 +1,3 @@
+_target_: script.evaluator.synthetic_evaluator.SyntheticEvaluator
+eval_clist: null
+timesteps: 100

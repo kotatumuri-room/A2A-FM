@@ -1,0 +1,14 @@
+dataset1:
+  _target_: script.datasets.CelebAHQ_dataset.CelebAHQDataset
+  preprocessed_root: ${rootdir}/datasets/celebADialogEmbbeded/
+  x_name: x_emb
+  c_name: c
+  upto: 10
+  c_indices: [3,2]
+dataset2:
+  _target_: script.datasets.CelebAHQ_dataset.CelebAHQDataset
+  preprocessed_root: ${rootdir}/datasets/celebADialogEmbbeded/
+  x_name: x_emb
+  c_name: c
+  upto: 10
+  c_indices: [3,2]

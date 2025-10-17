@@ -1,0 +1,8 @@
+dataset1:
+  _target_: script.datasets.base_dataset.NormalGaussian
+dataset2:
+  _target_: script.datasets.zinc22_dataset.ZINC22_Dataset
+  preprocessed_root: ${rootdir}/datasets/ZINC22_preprocessed_logp_tpsa/
+  x_name: emb_smiles
+  cond_columns: ["cdfd_logp","cdfd_tpsa"]
+  upto: null

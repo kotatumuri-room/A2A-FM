@@ -1,0 +1,6 @@
+dataset1:
+  _target_: script.datasets.synthetic.CircleMixturedFilledGaussianDataset
+  num_samples: 1000000
+dataset2:
+  _target_: script.datasets.synthetic.CircleMixturedFilledGaussianDataset
+  num_samples: 1000000

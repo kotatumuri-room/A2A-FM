@@ -1,0 +1,28 @@
+defaults:
+  - data_config: default
+  - data_handler: default
+  - dataset: default
+  - val_dataset: default
+  - loss: MSE
+  - lr_scheduler: null
+  - model: default
+  - optimizer: Adam
+  - process_generator: default
+  - trainer: default
+  - logger: tensorboard
+  - evaluator: default
+  - _self_
+
+rootdir: ./
+modelname: null
+savedir: ${rootdir}/outputs/${modelname}
+working_dir: ${rootdir}
+seed: 0
+ckpt_dir: null
+train_dataloader:
+  _target_: torch.utils.data.DataLoader
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+hydra:
+  run:
+    dir: ${savedir}

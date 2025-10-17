@@ -1,0 +1,39 @@
+defaults:
+  - datasets: synthetic
+  - val_datasets: synthetic
+  - logger: tensorboard
+  - model: dense_net
+  - alpha_model: sin_model
+  - optimizer: Adam
+  - lr_scheduler: exponentialLR
+  - trainer: default
+  - c_list: mixtured_gaussian
+  - _self_
+timesteps: 100
+dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 100
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 100
+vector_field:
+  model: ${model}
+  optimizer: ${optimizer}
+  lr_scheduler: ${lr_scheduler}
+  train_dataloader: ${dataloader}
+alpha:
+  model: ${alpha_model}
+  optimizer: ${optimizer}
+  lr_scheduler: ${lr_scheduler}
+  train_dataloader: ${dataloader}
+
+savedir: ${saveroot}/${modelname}
+modelname: mixtured_gaussian
+
+rootdir: #fill the absolute dir of this repo
+saveroot: ${rootdir}/outputs
+trainer:
+  max_epochs: 1000
+hydra:
+  job:
+    chdir: True

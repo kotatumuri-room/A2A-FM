@@ -1,0 +1,38 @@
+defaults:
+  - default
+  - override lr_scheduler: exponentialLR
+  - override data_config: celebahq_beard
+  - override data_handler: A2AFM
+  - override dataset:  celebahq_smile_beard
+  - override val_dataset: celebahq_smile_beard
+  - override model: unet_celebahq
+  - override process_generator: styletransfer_betaFM
+  - override optimizer: AdamW
+  - override evaluator: celebahq_smile_beard
+  - _self_
+dataset:
+  upto: -1
+modelname: celebahq_smile_beard
+
+process_generator:
+  ot_calculator: 
+    beta: 32
+train_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 32
+  shuffle: true
+  num_workers: 10
+  drop_last: true
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 10
+  shuffle: false
+  num_workers: 0
+  drop_last: true
+trainer:
+  devices: 1
+  precision: 32
+  check_val_every_n_epoch: 100
+  max_epochs: 100
+data_config:
+  c_dim: 2

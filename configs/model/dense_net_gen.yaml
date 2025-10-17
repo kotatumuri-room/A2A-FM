@@ -1,0 +1,7 @@
+_target_: script.models.flow_models.Flow
+mynet:
+  _target_: script.models.base_models.DeepDenseNet
+  w: 128
+  activation: SELU
+  depth: 8
+  normalize: false

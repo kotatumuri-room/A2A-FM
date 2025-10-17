@@ -1,0 +1,37 @@
+defaults:
+  - default
+  - override lr_scheduler: exponentialLR
+  - override data_config: zinc22_coati_2dim
+  - override data_handler: A2AFM
+  - override dataset:  zinc22_coati_logp_tpsa
+  - override val_dataset: zinc22_logp_tpsa
+  - override model: coati_wrapper_symmetric
+  - override process_generator: styletransfer_betaFM
+  - override optimizer: AdamW
+  - override evaluator: zinc22_logp_tpsa
+  - _self_
+
+dataset:
+  upto: -1
+modelname: zinc22_logp_tpsa
+
+process_generator:
+  ot_calculator: 
+    beta: 1.25 #the scale is different from the paper beta = sqrt(beta_paper)
+train_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 1 #一つあたり1024個
+  shuffle: true
+  num_workers: 10
+  drop_last: true
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 1 #一つあたり1024個 
+  shuffle: false
+  num_workers: 0
+  drop_last: true
+trainer:
+  devices: 1
+  precision: 32
+  check_val_every_n_epoch: 100
+  max_epochs: 100

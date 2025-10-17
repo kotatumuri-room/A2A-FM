@@ -1,0 +1,7 @@
+_target_: stochastic_interpolant.celeba_datasets.MultiMarginalCelebA
+K: ${K}
+preprocessed_root: ${rootdir}/datasets/celebADialogEmbbeded
+x_name: x_emb
+c_name: c
+k_means_dir: ${rootdir}/outputs/stochastic_interpolants/CelebAKmeansSmileBeard.pkl
+c_indices: [3,2]

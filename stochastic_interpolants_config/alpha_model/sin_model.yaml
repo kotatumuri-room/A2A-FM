@@ -1,0 +1,2 @@
+_target_: stochastic_interpolant.models.SinAlphaModel
+N: 100

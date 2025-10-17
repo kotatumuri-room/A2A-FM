@@ -1,0 +1,25 @@
+defaults:
+  - stochastic_interpolants
+  - override datasets: celebahq_smile_beard
+  - override val_datasets: celebahq_smile_beard
+  - override model: unet_model
+  - override optimizer: AdamW
+  - override c_list: celebahq
+  - _self_
+timesteps: 100
+modelname: celebahq_smile_beard_5
+trainer:
+  max_epochs: 100
+dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 32
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 32
+alpha:
+  train_dataloader:
+    _target_: torch.utils.data.DataLoader
+    batch_size: 3
+ckpt_versions_gt: null
+K: 5
+c_list: [0,1,2,3,4]

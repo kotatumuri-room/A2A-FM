@@ -1,0 +1,5 @@
+dataset1:
+  _target_: script.datasets.base_dataset.NormalGaussian
+dataset2:
+  _target_: script.datasets.synthetic.CircleMixturedFilledGaussianDataset
+  num_samples: 1000

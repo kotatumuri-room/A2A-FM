@@ -1,0 +1,34 @@
+defaults:
+  - stochastic_interpolants
+  - override datasets: celebahq_smile
+  - override val_datasets: celebahq_smile
+  - override model: unet_model
+  - override optimizer: AdamW
+  - override c_list: celebahq
+  - _self_
+timesteps: 100
+modelname: celebahq_smile_5
+trainer:
+  max_epochs: 100
+dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 32
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 32
+alpha:
+  train_dataloader:
+    _target_: torch.utils.data.DataLoader
+    batch_size: 3
+ckpt_versions_gt: null
+K: 5
+c_list: [0,1,2,3,4]
+eval:
+  device: cuda
+  c_indecies: [3]
+  ae_config: "${rootdir}/autoencoder_ckpts/first_stage_models/vq-f4/config.yaml"
+  ae_ckpt: "${rootdir}/autoencoder_ckpts/first_stage_models/vq-f4/model.ckpt"
+  timesteps: 100
+  img_path: ${rootdir}/outputs/celeba_evaluation/${modelname}
+  initial_path: "${rootdir}/datasets/celebADialogEmbbeded_eval"
+  targc:  [[0],[1],[2],[3],[4],[5]]

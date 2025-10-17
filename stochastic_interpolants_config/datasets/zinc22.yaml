@@ -1,0 +1,7 @@
+_target_: stochastic_interpolant.zinc22_datasets.MultiMarginalZinc22
+K: 10
+preprocessed_root: ${rootdir}/datasets/ZINC22_preprocessed_logp_tpsa/
+k_means_dir: ${rootdir}/outputs/Zinc22Kmeans.pkl
+x_name: emb_smiles
+cond_columns: ["cdfd_logp","cdfd_tpsa"]
+upto: null

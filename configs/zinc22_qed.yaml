@@ -1,0 +1,37 @@
+defaults:
+  - default
+  - override data_config: zinc22_coati
+  - override data_handler: A2AFM
+  - override dataset:  zinc22_qed
+  - override val_dataset: zinc22
+  - override model: coati_wrapper_symmetric
+  - override process_generator: styletransfer_betaFM
+  - override optimizer: AdamW
+  - override evaluator: zinc22_qed
+  - _self_
+
+dataset:
+  upto: -1
+modelname: zinc22_qed
+optimizer:
+  lr: 2e-5
+process_generator:
+  ot_calculator: 
+    beta: 1.241857812073484 #the scale is different from the paper beta = sqrt(beta_paper)
+train_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 1 #一つあたり1024個
+  shuffle: true
+  num_workers: 10
+  drop_last: true
+val_dataloader:
+  _target_: torch.utils.data.DataLoader
+  batch_size: 1 #一つあたり1024個 
+  shuffle: false
+  num_workers: 0
+  drop_last: true
+trainer:
+  devices: 1
+  precision: 32
+  check_val_every_n_epoch: 100
+  max_epochs: 100

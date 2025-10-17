@@ -1,0 +1,4 @@
+dataset1:
+  _target_: script.datasets.base_dataset.BaseDataset
+dataset2: 
+  _target_: script.datasets.base_dataset.BaseDataset

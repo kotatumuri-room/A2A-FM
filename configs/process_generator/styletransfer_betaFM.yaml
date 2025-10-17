@@ -1,0 +1,4 @@
+_target_: script.process_generator.flow_matching.OptimalTransportFlowMatcher
+ot_calculator: 
+  _target_: script.process_generator.optimal_transport.BetaOptimalTransportCalculator
+  beta: 1000

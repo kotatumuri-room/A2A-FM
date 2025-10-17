@@ -1,0 +1,12 @@
+_target_: stochastic_interpolant.models.UnetModelWrapper
+unet_model:
+  _target_: script.models.unet.unet.UNetModelWrapper
+  dim: [3,64,64]
+  num_channels: 128
+  num_res_blocks: 2
+  num_heads: 4
+  num_head_channels: 64
+  attention_resolutions: "16,8"
+  dropout: 0.1
+  class_cond: True
+K: ${K}

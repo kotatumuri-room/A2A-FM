@@ -1,0 +1,5 @@
+_target_: stochastic_interpolant.models.COATI_wrapper
+ckpt_doc: ${rootdir}/data/logp_flow.pt
+time_max: 1.
+use_state_dict: false
+K: 10

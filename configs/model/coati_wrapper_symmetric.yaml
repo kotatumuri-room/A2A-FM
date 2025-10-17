@@ -1,0 +1,6 @@
+_target_: script.models.flow_models.SymmetricFlow
+mynet:
+  _target_: script.models.coati_wrapper.COATI_wrapper
+  ckpt_doc: ${rootdir}/data/qed_opt_diffuser.pt
+  time_max: 1.
+  use_state_dict: false

@@ -1,0 +1,2 @@
+_target_: script.evaluator.base_evaluator.BaseEvaluator
+timesteps: 100

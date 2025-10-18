@@ -86,7 +86,7 @@ def integrate(vels,initx,initc,targc,ts,kmeans_model,l0,targlabel,config):
 
 @hydra.main(
     config_path="stochastic_interpolants_config",
-    config_name="stochastic_interpolants",
+    config_name=" ",
     version_base=None,
 )
 def validate(config):

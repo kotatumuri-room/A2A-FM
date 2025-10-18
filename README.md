@@ -58,34 +58,34 @@ Once you get the checkpoint files (inside `./outputs` by default), write the pat
 # train A2A-FM
 python main.py --config-name=zinc22_qed
 # evaluate
-python eval.py --config-name=zinc22_qed
+python eval.py --config-name=zinc22_qed ckpt_dir=<path to .ckpt>
 ```
 
 ## 4. LogP-TPSA experiment (Figure 5 & Table 3)
 ```bash
 # A2A-FM
 python main.py --config-name=zinc22_logp_tpsa
-python eval.py --config-name=zinc22_logp_tpsa
+python eval.py --config-name=zinc22_logp_tpsa ckpt_dir=<path to .ckpt>
 # Partial diffusion with classifer-free guidance (T=300)
 python main.py --config-name=zinc22_logp_tpsa_guidance_diffusion
-python eval.py --config-name=zinc22_logp_tpsa_guidance_diffusion evaluator.timesteps_eval=0.3
+python eval.py --config-name=zinc22_logp_tpsa_guidance_diffusion evaluator.timesteps_eval=0.3 ckpt_dir=<path to .ckpt>
 # Partial diffusion with classifer-free guidance (T=500)
 python main.py --config-name=zinc22_logp_tpsa_guidance_diffusion
-python eval.py --config-name=zinc22_logp_tpsa_guidance_diffusion evaluator.timesteps_eval=0.5
+python eval.py --config-name=zinc22_logp_tpsa_guidance_diffusion evaluator.timesteps_eval=0.5 ckpt_dir=<path to .ckpt>
 # Partial diffusion with classifer-free guidance (T=1000)
 python main.py --config-name=zinc22_logp_tpsa_guidance_diffusion
-python eval.py --config-name=zinc22_logp_tpsa_guidance_diffusion evaluator.timesteps_eval=1.0
+python eval.py --config-name=zinc22_logp_tpsa_guidance_diffusion evaluator.timesteps_eval=1.0 ckpt_dir=<path to .ckpt>
 # OTCFM
-python main.py --config-name=zinc22_logp_tpsa_otcfm
-python eval.py --config-name=zinc22_logp_tpsa_otcfm
+python main.py --config-name=zinc22_logp_tpsa_otcfm 
+python eval.py --config-name=zinc22_logp_tpsa_otcfm ckpt_dir=<path to .ckpt>
 # SI(K=10)
 python stochastic_interpolants_train.py --config-name=zinc22_logp_tpsa
-python stochastic_interpolants_evaluate_drug.py --config-name=zinc22_logp_tpsa
+python stochastic_interpolants_evaluate_drug.py --config-name=zinc22_logp_tpsa 
 ```
 
 ## 5. CelebADialogHQ (Appendix C)
 
 ```bash 
 python main.py --config-name=celebahq_smile_beard
-python eval.py --config-name=celebahq_smile_beard
+python eval.py --config-name=celebahq_smile_beard ckpt_dir=<path to .ckpt>
 ```

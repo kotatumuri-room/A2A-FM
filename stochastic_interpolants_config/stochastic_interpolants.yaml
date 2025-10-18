@@ -30,7 +30,7 @@ alpha:
 savedir: ${saveroot}/${modelname}
 modelname: mixtured_gaussian
 
-rootdir: #fill the absolute dir of this repo
+rootdir: ./
 saveroot: ${rootdir}/outputs
 trainer:
   max_epochs: 1000

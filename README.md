@@ -48,7 +48,7 @@ python main.py --config-name=synthetic
 # train DDPM + CFG for parital diffusion
 python main.py --config-name=synthetic_diff_cfg
 
-# train Multimariginal SI
+# train Multimarginal SI
 python stochastic_intepolants_train.py --config-name=synthetic
 ```
 Once you get the checkpoint files (inside `./outputs` by default), write the path to `.ckpt` files in [`figure_notebooks/draw_synthetic_nongrouped.ipynb`](figure_notebooks/draw_synthetic_nongrouped.ipynb) to reproduce the evaluation results.

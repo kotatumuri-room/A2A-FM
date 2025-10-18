@@ -32,7 +32,7 @@ pip install ./COATI-LDM
 # Data preparation
 Read the `README.md` files under `autoencoder_ckpts`, `data`, and `datasets` if you want to train/evaluate the drug transfer task or the CelabADialogHQ task.
 
-This is unneccessary if you only want to run synthetic experimetns.
+This is unneccessary if you only want to run synthetic experiments.
 
 # Experiments
 
@@ -51,7 +51,7 @@ python main.py --config-name=synthetic_diff_cfg
 # train Multimariginal SI
 python stochastic_intepolants_train.py --config-name=synthetic
 ```
-Once you get the checkpoint files (inside `./outputs` by default), put write the path to `.ckpt` files in [`figure_notebooks/draw_synthetic_nongrouped.ipynb`](figure_notebooks/draw_synthetic_nongrouped.ipynb) to reproduce the evaluation results.
+Once you get the checkpoint files (inside `./outputs` by default), write the path to `.ckpt` files in [`figure_notebooks/draw_synthetic_nongrouped.ipynb`](figure_notebooks/draw_synthetic_nongrouped.ipynb) to reproduce the evaluation results.
 
 ## 3. QED experiment (Figure 4 & Table 2)
 ```bash
@@ -83,7 +83,7 @@ python stochastic_interpolants_train.py --config-name=zinc22_logp_tpsa
 python stochastic_interpolants_evaluate_drug.py --config-name=zinc22_logp_tpsa
 ```
 
-## 5. CelebAHQ Dialog (Appendix C)
+## 5. CelebADialogHQ (Appendix C)
 
 ```bash 
 python main.py --config-name=celebahq_smile_beard
